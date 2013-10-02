@@ -42,8 +42,9 @@ druby をつかって簡易的な rpc の仕組みをつくってみた。
 10 秒ほどコマンドが終了した頃に再度 実行すると、今度は 実行結果を得ることができる。
 
     $ ruby rpc_async_log 4
-    id=4:  {:status=>"running", :cmd=>"sleep 10; ls", :starTime=>2013-10-03 02:01:25 +0900}
-
+    id=4:  {:status=>:finish, :cmd=>"sleep 10; ls", :start=>2013-10-03 02:01:01 +0900, :end=>2013-10-03 02:01:11 +0900,
+            :ret=>#<Process::Status: pid 17820 exit 0>,
+            :out=>"README.md\nREADME.md~\nrpc_async.rb\nrpc_async_log.rb\nrpc_sync.rb\nserver.rb\n", :err=>""}
 
 現状のソースコードでは、同一マシン上でおこなっているが、
 druby をつかっているので、サーバーとクライアントを別マシンにして、実行をすることが可能ははずである。
