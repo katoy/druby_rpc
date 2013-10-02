@@ -35,13 +35,14 @@ druby をつかって簡易的な rpc の仕組みをつくってみた。
 この処理 ID を使って、実行状況や実行結果を問い合わせることができる。
     
     $ ruby rpc_async_log 4
-    id=5:  {:status=>"running", :cmd=>"sleep 10; ls", :starTime=>2013-10-03 02:01:25 +0900}
+    id=4:  {:status=>"running", :cmd=>"sleep 10; ls", :starTime=>2013-10-03 02:01:25 +0900}
 
 上の表示は、コマンド実行が終了していないことが示されている。
 
 10 秒ほどコマンドが終了した頃に再度 実行すると、今度は 実行結果を得ることができる。
+
     $ ruby rpc_async_log 4
-    id=5:  {:status=>"running", :cmd=>"sleep 10; ls", :starTime=>2013-10-03 02:01:25 +0900}
+    id=4:  {:status=>"running", :cmd=>"sleep 10; ls", :starTime=>2013-10-03 02:01:25 +0900}
 
 
 現状のソースコードでは、同一マシン上でおこなっているが、
